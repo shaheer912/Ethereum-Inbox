@@ -19,7 +19,12 @@ const deploy = async (done) => {
   console.log('Attempting to deploy from account', accounts[0]);
 
   const result = await new web3.eth.Contract(JSON.parse(interface))
-    .deploy({data:'0x' + bytecode, arguments: ['Hello']})
+    .deploy(
+      {
+        data:'0x' + bytecode,  // this is a bug fix, see https://github.com/trufflesuite/truffle/issues/558#issuecomment-392344663
+        arguments: ['Hello']
+      }
+    )
     .send({ gas: '279139', from: accounts[0] })
     ;
   console.log('Contract deployed to address', result.options.address);
