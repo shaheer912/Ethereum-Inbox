@@ -1,3 +1,3 @@
 # SolidityInbox
 
-A Really Simple Application to right and read data from Ethereum Network 
+A Really Simple Application Solidity Smart Contract to write and read data from Ethereum Network 
